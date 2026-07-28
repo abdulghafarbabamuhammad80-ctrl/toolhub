@@ -1,23 +1,3 @@
-const search = document.getElementById("search");
-const cards = document.querySelectorAll(".tool-card");
-
-search.addEventListener("keyup", () => {
-
-    const value = search.value.toLowerCase();
-
-    cards.forEach(card => {
-
-        const text = card.innerText.toLowerCase();
-
-        if(text.includes(value)){
-            card.style.display = "block";
-        }else{
-            card.style.display = "none";
-        }
-
-    });
-
-});
 const hubby = document.getElementById("hubby");
 const hubbyChat = document.getElementById("hubby-chat");
 const closeHubby = document.getElementById("closeHubby");
