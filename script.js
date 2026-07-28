@@ -1,107 +1,117 @@
+// ======================
+// SEARCH BAR
+// ======================
+
+const search = document.getElementById("search");
+
+if (search) {
+    search.addEventListener("input", () => {
+
+        const value = search.value.toLowerCase();
+        const cards = document.querySelectorAll(".tool-card");
+
+        cards.forEach(card => {
+
+            const text = card.innerText.toLowerCase();
+
+            if (text.includes(value)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+}
+
+
+// ======================
+// HUBBY ROBOT
+// ======================
+
 const hubby = document.getElementById("hubby");
 const hubbyChat = document.getElementById("hubby-chat");
-const closeHubby = document.getElementById("closeHubby");
 
-hubby.addEventListener("click", () => {
+if (hubby && hubbyChat) {
 
-    hubbyChat.style.display = "block";
+    hubby.addEventListener("click", () => {
 
-    hubbyChat.innerHTML = `
-        <h3>🤖 Hubby</h3>
+        hubbyChat.innerHTML = `
+            <h3>🤖 Hubby</h3>
 
-        <p>👋 Welcome to ToolHub!</p>
+            <p>Hello! I'm Hubby.</p>
 
-        <p>I can help you find the right tool.</p>
+            <p>I can help you find the right tool.</p>
 
-        <button onclick="findTool()">
-        🔍 Find a Tool
-        </button>
+            <button onclick="findTool()">🔍 Find Tool</button>
 
-        <button onclick="aboutHubby()">
-        🤖 About Me
-        </button>
+            <button onclick="aboutHubby()">🤖 About Me</button>
 
-        <button id="closeHubby">
-        ❌ Close
-        </button>
-    `;
+            <button id="closeHubby">❌ Close</button>
+        `;
 
-    document
-    .getElementById("closeHubby")
-    .addEventListener("click", () => {
+        hubbyChat.style.display = "block";
 
-        hubbyChat.style.display = "none";
+        document
+            .getElementById("closeHubby")
+            .addEventListener("click", () => {
+
+                hubbyChat.style.display = "none";
+
+            });
 
     });
 
-});
+}
 
-closeHubby.addEventListener("click", () => {
-    hubbyChat.style.display = "none";
-});
-function findTool(){
 
-    alert(
-`🤖 I can help you find:
+// ======================
+// HUBBY FUNCTIONS
+// ======================
 
-🔐 Password Generator
+function findTool() {
 
-📱 QR Generator
+    alert(`🤖 Available tools:
 
+🔑 Password Generator
+📱 QR Code Generator
 📝 Word Counter
-
 🎂 Age Calculator
-
 📊 Percentage Calculator
-
-🎲 Random Number Generator
-
+🎲 Random Number
 🪙 Coin Flip
-
 🎨 Colour Picker
-
 📏 Unit Converter
-
-⏱️ Stopwatch`
-    );
+⏱️ Stopwatch`);
 
 }
 
-function aboutHubby(){
+function aboutHubby() {
 
-    alert(
-`🤖 Hi!
+    alert(`🤖 Hi!
 
 I'm Hubby.
 
-I was created to help visitors use ToolHub quickly and easily.
+I help visitors use ToolHub.
 
-More features are coming soon! 🚀`
-    );
+More updates are coming soon! 🚀`);
 
 }
-const search = document.getElementById("search");
 
-search.addEventListener("input", () => {
 
-    const value = search.value.toLowerCase();
+// ======================
+// BACK BUTTON
+// ======================
 
-    const cards = document.querySelectorAll(".tool-card");
+const backButton = document.getElementById("backButton");
 
-    cards.forEach(card=>{
+if (backButton) {
 
-        const text = card.innerText.toLowerCase();
+    backButton.addEventListener("click", () => {
 
-        if(text.includes(value)){
-
-            card.style.display="block";
-
-        }else{
-
-            card.style.display="none";
-
-        }
+        window.history.back();
 
     });
 
-});
+}
