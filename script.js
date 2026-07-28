@@ -115,3 +115,26 @@ if (backButton) {
     });
 
 }
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const visitor = document.getElementById("visitor-counter");
+
+    const counter = new Counter({
+        workspace: "Toolhub"
+    });
+
+    try {
+
+        const result = await counter.up("page-views");
+
+        visitor.textContent = `👥 Visitors: ${result.value}`;
+
+    } catch (error) {
+
+        visitor.textContent = "👥 Visitors: 1";
+
+        console.log(error);
+
+    }
+
+});
