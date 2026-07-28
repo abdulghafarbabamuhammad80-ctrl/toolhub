@@ -187,3 +187,13 @@ textarea{
     margin-top:10px;
     margin-bottom:15px;
 }
+footer a{
+    color:white;
+    text-decoration:none;
+    margin:0 8px;
+    font-weight:bold;
+}
+
+footer a:hover{
+    text-decoration:underline;
+}
